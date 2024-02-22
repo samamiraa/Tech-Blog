@@ -12,5 +12,5 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.listen(PORT, () => {
-    console.log('Server listening on: http://localhost:' + PORT);
-  });
+  console.log('Server listening on: http://localhost:' + PORT);
+});
