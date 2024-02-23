@@ -35,6 +35,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 ## Credits
 
 https://www.w3schools.com/sql/sql_datatypes.asp
+https://sequelize.org/api/v6/variable/#static-variable-DataTypes
+
 
 ## License
 
