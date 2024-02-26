@@ -5,8 +5,10 @@ const path = require('path');
 const routes = require('./controllers/routes');
 const sequelize = require('./config/connection.js');
 
-const User = require('./models/User.js')
-const Post = require('./models/Post.js')
+const User = require('./models/User.js');
+const Post = require('./models/Post.js');
+const Comments = require('./models/Comments.js')
+
 
 // Sets up the Express App
 const app = express();
