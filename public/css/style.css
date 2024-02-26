@@ -1,10 +1,13 @@
 body {
-    background: linear-gradient(150deg, #000000, #767676); /* Dark gradient background */
-    color: #ffffff; /* Light text color for better visibility */
+    background: linear-gradient(150deg, #000000, #767676);
+    /* Dark gradient background */
+    color: #ffffff;
+    /* Light text color for better visibility */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Ensure the gradient covers the entire viewport height */
+    height: 100vh;
+    /* Ensure the gradient covers the entire viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
