@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
             username: req.body.email,
             password: req.body.password,
         });
+        res.redirect('/api/dashboard');
     } catch (error) {
         console.error('Error adding new user:', error);
         return res

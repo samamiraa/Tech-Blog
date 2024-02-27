@@ -19,7 +19,8 @@ registerBtn.addEventListener('click', function (event) {
 
     postRequest
         .then(function (response) {
-            console.log('success!', response.data)
+            console.log('success!', response.data);
+            window.location.replace('/api/dashboard');
         })
         .catch(function (error) {
             console.error('Error:', error.message);
