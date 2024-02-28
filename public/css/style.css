@@ -17,3 +17,16 @@ body {
 h1 {
     font-size: 75px;
 }
+
+h2 {
+    font-size: 50px;
+}
+
+.hide {
+    display: none;
+}
+
+.btn-width {
+    width: 100px;
+    margin-left: auto;
+}
