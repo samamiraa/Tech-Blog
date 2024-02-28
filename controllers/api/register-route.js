@@ -20,6 +20,12 @@ router.post('/', async (req, res) => {
             username: req.body.email,
             password: hashPassword.password,
         });
+
+        req.session.save(() => {
+            req.session.loggedIn = true;
+        });
+        
+        console.log(req.session);
         res.redirect('/api/dashboard');
     } catch (error) {
         console.error('Error adding new user:', error);
