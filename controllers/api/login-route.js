@@ -1,45 +1,48 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { User } = require('../../models')
 
 router.get('/', async (req, res) => {
     res.render('login.handlebars');
 });
 
-// router.post('/login', async (req, res) => {
-//     console.log(req.body);
-//     try {
-//         const loginUser = await User.findOne({
-//             where: {
-//                 email: req.body.email,
-//             },
-//         });
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    try {
+        const loginUser = await User.findOne({
+            where: {
+                username: req.body.email,
+            },
+        });
 
-//         if (!loginUser) {
-//             res.status(400);
-//             return;
-//         }
+        console.log(loginUser);
 
-//         const validPassword = await loginUser.checkPassword(req.body.password);
+        if (!loginUser) {
+            res.status(400);
+            return;
+        }
 
-//         if (!validPassword) {
-//             res.status(400);
-//             return;
-//         };
+        const validPassword = await bcrypt.compare(req.body.password, loginUser.password);
 
-//         req.session.save(() => {
-//             req.session.loggedIn = true;
-//             console.log(
-//                 'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
-//                 req.session.cookie
-//             );
-//         });
+        if (!validPassword) {
+            res.status(400);
+            return;
+        };
 
-//         res.redirect('/api/dashboard');
-//         } catch (error) {
-//             console.log(error);
-//             res.status(500).json(error);
-//         }
-//     });
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            console.log(
+                'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+                req.session.cookie
+            );
+        });
+
+        res.redirect('/api/dashboard');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {

@@ -1,34 +1,35 @@
 const loginBtn = document.getElementById('login-btn');
 const logoutBtn = document.getElementById('logout-btn');
 
-// loginBtn.addEventListener('click', async function (event) {
-//     event.preventDefault();
+loginBtn.addEventListener('click', async function (event) {
+    event.preventDefault();
 
-//     console.log(loginBtn + 'has been clicked!')
+    console.log(loginBtn + 'has been clicked!')
 
-//     const email = document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-//     console.log(email + password);
+    console.log(email + ' ' + password);
 
-//     const existingUser = { email, password };
+    const existingUser = { email, password };
 
-//     if (email && password) {
-//         const toastLiveExample = document.getElementById('liveToast');
-//         const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-//         postRequest = axios.post('/api/login', existingUser);
+    if (email && password) {
+        const toastLiveExample = document.getElementById('liveToast');
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        
+        postRequest = axios.post('/api/login', existingUser);
 
-//         await postRequest
-//             .then(function (response) {
-//                 console.log('Successful login!', response.data);
-//                 window.location.replace('/api/dashboard');
-//             })
-//             .catch(function (error) {
-//                 toastBootstrap.show()
-//                 console.error('Error loggin in:', error.message);
-//             });
-//     };
-// });
+        await postRequest
+            .then(function (response) {
+                console.log('Successful login!', response.data);
+                window.location.replace('/api/dashboard');
+            })
+            .catch(function (error) {
+                toastBootstrap.show()
+                console.error('Error loggin in:', error.message);
+            });
+    };
+});
 
 logoutBtn.addEventListener('click', async function (event) {
     const postRequest = axios.post('/api/logout');
