@@ -12,22 +12,33 @@
       <h2 class="text-secondary">Create New Post</h2>
       <div class="input-group m-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
+        <input type="text" id="title" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="form-floating m-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+        <textarea class="form-control" placeholder="Leave a comment here" id="description"
           style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
+        <label for="floatingTextarea2"></label>
       </div>
 
-      <button type="button" class="btn btn-dark btn-width">
+      <button type="button" class="btn btn-dark btn-width" id="post-Btn">
         Create
       </button>
     </div>
   </div>
 
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-theme="dark">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Webdev Wizardry</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body text-secondary">
+        New Blog Post!
+      </div>
+    </div>
+  </div>
 </div>
 
 
