@@ -29,10 +29,10 @@ router.post('/', async (req, res) => {
             return;
         };
 
-        
+        req.session.loggedIn = true;
+        req.session.userId = loginUser.id;
         req.session.save(() => {
-            req.session.loggedIn = true;
-            req.session.userId = loginUser.id;
+            console.log(req.session.userId);
             console.log(
                 'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
                 req.session.cookie
