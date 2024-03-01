@@ -12,6 +12,7 @@ router.post('/post', async (req, res) => {
         const newPost = await Post.create({
             title: req.body.title,
             description: req.body.description,
+            userId: req.session.userId,
         });
         return res.redirect('/');
     } catch (error) {

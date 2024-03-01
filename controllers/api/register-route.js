@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
         hashPassword.password = await bcrypt.hash(req.body.password, 10);
 
         console.log(hashPassword);
+
         const newUser = await User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -21,10 +22,17 @@ router.post('/', async (req, res) => {
             password: hashPassword.password,
         });
 
-        req.session.save(() => {
-            req.session.loggedIn = true;
+        req.session.loggedIn = true;
+        req.session.userId = newUser.id;
+        req.session.save((err) => {
+            console.log(req.session.userId);
+            
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: 'Internal Server Error' });
+            }
         });
-        
+
         console.log(req.session);
         res.redirect('/api/dashboard');
     } catch (error) {
