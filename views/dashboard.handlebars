@@ -1,7 +1,7 @@
 <div class="container-fluid m-auto vh-100" data-bs-theme="dark">
-  <div>
+  <div class="position-relative">
     <div class="position-absolute bottom-0 start-50 translate-middle-x">
-      <button type="button" class="btn btn-dark" id="create-btn">
+      <button type="button" class="btn btn-light mb-3" id="create-btn">
         Create New Post
       </button>
     </div>
@@ -27,6 +27,15 @@
       </button>
     </div>
   </div>
+
+  {{#if posts.length}}
+  {{#each posts as |post|}}
+  {{> post-details post}}
+  {{/each}}
+  {{else}}
+  <h2 class="text-secondary m-5">No Current posts</h2>
+  {{/if}}
+
 </div>
 
 <script src="../js/dashboard.js"></script>

@@ -1,9 +1,27 @@
 const router = require('express').Router();
-const { Post, Comments } = require('../../models');
+const { Post, Comments, User } = require('../../models');
 
 router.get('/', async (req, res) => {
+    console.log(req.session.userId);
+    try {
+        const dbPostData = await Post.findAll({
+            include: [{ model: Comments }, { model: User }],
+            where: {
+                userId: req.session.userId,
+            },
+        })
 
-    res.render('dashboard.handlebars');
+        const posts = dbPostData.map((post) =>
+            post.get({ plain: true })
+        );
+
+        console.log(posts);
+        res.render('dashboard.handlebars', { posts });
+    } catch (error) {
+        console.error('Error getting products: ', error);
+        res.status(500).json(error);
+    }
+
 });
 
 router.post('/post', async (req, res) => {
