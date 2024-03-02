@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, Comments } = require('../../models');
 
 router.get('/', async (req, res) => {
+
     res.render('dashboard.handlebars');
 });
 

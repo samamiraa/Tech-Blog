@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-header">
+       {{post.title}}
+    </div>
+    <div class="card-body">
+        {{post.description}}
+    </div>
+    <div class="card-footer">
+        by {{post.user.username}} on {{format_date post.created_at}}
+    </div>
+</div>

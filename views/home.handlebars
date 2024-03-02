@@ -12,7 +12,13 @@
         </div>
       </div>
 
+    {{#if posts.length}}
+      {{#each posts as |post|}}
+        {{> post-details post}}
+      {{/each}}
+    {{else}}
       <h2 class="text-secondary m-5">No Current posts</h2>
+    {{/if}}
     </div>
   </div>
 </div>
