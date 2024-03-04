@@ -1,33 +1,39 @@
-
 {{> post-details post}}
 
-<button type="button" class="btn btn-dark btn-width m-4" id="comment-Btn">
-  Add Comment
+<button type="button" class="btn btn-secondary btn-width m-4" id="comment-Btn">
+    Add Comment
 </button>
 
-<div class="m-5">
-  <div class="row hide" id="comment-form">
-    <h2 class="text-secondary text-center">Add Comment</h2>
-    <div class="form-floating m-3">
-      <textarea class="form-control" placeholder="Leave a comment here" id="description"
-        style="height: 100px"></textarea>
-      <label for="floatingTextarea2"></label>
+<div class="m-5 hide">
+    <div class="row" id="comment-form">
+        <h2 class="text-secondary text-center">Add Comment</h2>
+        <div class="form-floating m-3">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment-description"
+                style="height: 100px"></textarea>
+            <label for="floatingTextarea2"></label>
+        </div>
+
+        <button type="button" data-id="{{post.id}}" class="btn btn-dark btn-width m-4" id="create-comment-Btn">
+            Create
+        </button>
     </div>
-
-    <button type="button" class="btn btn-dark btn-width m-4" id="post-Btn">
-      Create
-    </button>
-  </div>
 </div>
 
-<div class="card m-3" data-bs-theme="light">
-  <div class="card-body">
 
-  </div>
+{{#if post.comments.length}}
+    {{#each post.comments as |comment|}}
+        <div class="card m-3" data-bs-theme="light">
+            <div class="card-body">
+                {{comment.comment}}
+            </div>
 
-  <div class="card-footer">
+            <div class="card-footer">
+                By {{comment.user.firstName}} on {{format_date comment.createdAt}}
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <h2 class="text-secondary m-5">No comments</h2>
+{{/if}}
 
-  </div>
-</div>
-
-<script src="../js/post.js"></script>
+<script src="/js/post.js"></script>

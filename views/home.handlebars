@@ -1,17 +1,20 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
+      {{#unless loggedIn}}
       <div class="card text-center m-3">
+          
         <div class="card-header">
           Choose One
         </div>
-
+      
         <div class="card-body" id="home-buttons">
           <a href="/api/login" class="btn btn-dark" id="login-btn">Login</a>
           <a href="/api/register" class="btn btn-dark" id="register-btn">Sign Up</a>
         </div>
+      
       </div>
-
+     {{/unless}}
     {{#if posts.length}}
       {{#each posts as |post|}}
         {{> post-details post}}

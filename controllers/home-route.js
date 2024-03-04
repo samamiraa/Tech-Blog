@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         );
 
         console.log(posts);
-        res.render('home', { posts });
+        res.render('home', { posts, loggedIn: req.session.loggedIn });
     } catch (error) {
         console.error('Error getting products: ', error);
         res.status(500).json(error);
