@@ -53,30 +53,32 @@ postBtn.addEventListener('click', async function (event) {
 deletePostBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
 
-    const checkPost = document.getElementById('check-post');
-    const postId = checkPost.getAttribute('data-id');
+    const checkPosts = document.querySelectorAll('.check-post');
+    
+    checkPosts.forEach((checkPost) => {
+        const postId = checkPost.getAttribute('data-id');
+        console.log('postId: ' + postId);
+        if (checkPost.checked === true) {
+            const deleteRequest = axios.delete('/api/dashboard/post/' + postId);
 
-    console.log('postId: ' + postId);
+            deleteRequest
+                .then(function (response) {
+                    console.log('Response:', response.data);
+                    window.location.reload();
+                })
+                .catch(function (error) {
+                    console.error('Error:', error.message);
+                });
+        } else {
+            const updateToast = document.getElementById('deleteToast');
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(updateToast);
+            toastBootstrap.show();
 
-    if (checkPost.checked === true) {
-        const deleteRequest = axios.delete('/api/dashboard/post/' + postId);
-
-        deleteRequest
-            .then(function (response) {
-                console.log('Response:', response.data);
-                window.location.reload();
-            })
-            .catch(function (error) {
-                console.error('Error:', error.message);
-            });
-    } else {
-        const updateToast = document.getElementById('deleteToast');
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(updateToast);
-        toastBootstrap.show();
-
-        console.error('Error deleting post!');
-    };
+            console.error('Error deleting post!');
+        };
+    });    
 });
+
 
 updateBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');

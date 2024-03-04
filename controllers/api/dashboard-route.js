@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Post, Comments, User } = require('../../models');
 
 router.get('/', async (req, res) => {
-    console.log(req.session.userId);
     try {
         const dbPostData = await Post.findAll({
             include: [{ model: Comments }, { model: User }],
@@ -25,8 +24,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/post', async (req, res) => {
-    console.log(req.body);
-    console.log(req.session.userId);
     try {
         const newPost = await Post.create({
             title: req.body.title,
@@ -43,7 +40,6 @@ router.post('/post', async (req, res) => {
 });
 
 router.delete('/post/:id', async (req, res) => {
-    console.log('Deleting post with ID:', req.params.id);
     try {
       await Post.destroy({
         where: {
@@ -59,7 +55,6 @@ router.delete('/post/:id', async (req, res) => {
 
 router.put('/post/:id', async (req, res) => {
     try {
-        console.log(req.body);
         const updatePost = await Post.update(
             {
                 title: req.body.postTitle,
