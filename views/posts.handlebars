@@ -1,6 +1,6 @@
 {{> post-details post}}
 
-<button type="button" class="btn btn-secondary btn-width m-4" id="comment-Btn">
+<button type="button" class="btn btn-light btn-width m-4" id="comment-Btn">
     Add Comment
 </button>
 
@@ -13,7 +13,7 @@
             <label for="floatingTextarea2"></label>
         </div>
 
-        <button type="button" data-id="{{post.id}}" class="btn btn-dark btn-width m-4" id="create-comment-Btn">
+        <button type="button" data-id="{{post.id}}" class="btn m-4 btn-light btn-width" id="create-comment-Btn">
             Create
         </button>
     </div>
@@ -21,14 +21,21 @@
 
 
 {{#if post.comments.length}}
+    <h2 class="text-secondary">Comments</h2>
     {{#each post.comments as |comment|}}
-        <div class="card m-3" data-bs-theme="light">
+        <div class="card m-3" data-bs-theme="dark">
             <div class="card-body">
                 {{comment.comment}}
             </div>
 
             <div class="card-footer">
-                By {{comment.user.firstName}} on {{format_date comment.createdAt}}
+                <div class="text-container">
+                    By {{comment.user.firstName}} on {{format_date comment.createdAt}}
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-light btn-sm">Delete</button>
+                    <button type="button" class="btn btn-light btn-sm">Update</button>
+                </div>
             </div>
         </div>
     {{/each}}

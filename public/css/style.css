@@ -1,11 +1,7 @@
 body {
-    background: linear-gradient(150deg, #000000, #767676);
-    /* Dark gradient background */
-    color: #ffffff;
-    /* Light text color for better visibility */
+    background: linear-gradient(to top, #000000, #767676);
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-attachment: fixed;
     height: 100vh;
     /* Ensure the gradient covers the entire viewport height */
     display: flex;
@@ -31,6 +27,25 @@ a {
 }
 
 .btn-width {
-    width: 100px;
+    width: 200px;
     margin-left: auto;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.text-container {
+    margin-right: 10px; 
+}
+  
+.button-container {
+    display: flex;
+}
+  
+.button-container button {
+    margin-left: 10px; 
 }
