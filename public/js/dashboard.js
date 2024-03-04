@@ -54,7 +54,7 @@ deletePostBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
 
     const checkPosts = document.querySelectorAll('.check-post');
-    
+
     checkPosts.forEach((checkPost) => {
         const postId = checkPost.getAttribute('data-id');
         console.log('postId: ' + postId);
@@ -73,55 +73,58 @@ deletePostBtn.addEventListener('click', async function (event) {
             const updateToast = document.getElementById('deleteToast');
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(updateToast);
             toastBootstrap.show();
-
-            console.error('Error deleting post!');
         };
-    });    
+    });
 });
 
 
 updateBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
 
-    const checkPost = document.getElementById('check-post');
+    const checkPosts = document.querySelectorAll('.check-post:checked');
 
+        if (checkPosts.length === 0) {
+            const updateToast = document.getElementById('updateToast');
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(updateToast);
+            toastBootstrap.show();
+        };
 
-    if (checkPost.checked === true) {
-        createBtn.classList.add('hide');
-        deletePostBtn.classList.add('hide');
-        updateBtn.classList.add('hide');
-        backToHome.classList.add('hide');
-        backToDb.classList.remove('hide');
+    checkPosts.forEach((checkPost) => {
+        if (checkPost.checked === true) {
+            createBtn.classList.add('hide');
+            deletePostBtn.classList.add('hide');
+            updateBtn.classList.add('hide');
+            backToHome.classList.add('hide');
+            backToDb.classList.remove('hide');
 
-        const postId = checkPost.getAttribute('data-id');
+            const postId = checkPost.getAttribute('data-id');
+            console.log('postId: ' + postId);
 
-        const updatePostForm = document.getElementById('update-post-form');
-        updatePostForm.parentElement.classList.remove('hide');
+            const updatePostForm = document.getElementById('update-post-form');
+            updatePostForm.parentElement.classList.remove('hide');
 
-        const updatePostBtn = document.getElementById('update-post-Btn');
+            const updatePostBtn = document.getElementById('update-post-Btn');
 
-        updatePostBtn.addEventListener('click', async function (event) {
-            const postTitle = document.getElementById('post-title').value;
-            const postDescription = document.getElementById('post-description').value;
+            updatePostBtn.addEventListener('click', async function (event) {
+                const postTitle = document.getElementById('post-title').value;
+                const postDescription = document.getElementById('post-description').value;
 
-            console.log(`post title: ${postTitle}, post description: ${postDescription}, postId: ${postId}`);
+                console.log(`post title: ${postTitle}, post description: ${postDescription}, postId: ${postId}`);
 
-            const updatePostData = { postTitle, postDescription, postId }
+                const updatePostData = { postTitle, postDescription, postId }
 
-            const putRequest = axios.put('/api/dashboard/post/:id', updatePostData);
+                const putRequest = axios.put('/api/dashboard/post/:id', updatePostData);
 
-            putRequest
-                .then(function (response) {
-                    console.log('Response:', response.data);
-                    window.location = '/api/dashboard';
-                })
-                .catch(function (error) {
-                    console.error('Error:', error.message);
-                });
-        });
-    } else {
-        const updateToast = document.getElementById('updateToast');
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(updateToast);
-        toastBootstrap.show();
-    };
+                putRequest
+                    .then(function (response) {
+                        console.log('Response:', response.data);
+                        window.location = '/api/dashboard';
+                    })
+                    .catch(function (error) {
+                        console.error('Error:', error.message);
+                    });
+            });
+        }
+
+    });
 });
