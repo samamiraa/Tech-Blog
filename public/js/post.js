@@ -1,6 +1,5 @@
 const addCommentBtn = document.getElementById('comment-Btn');
 const createCommentBtn = document.getElementById('create-comment-Btn');
-const deletePostBtn = document.getElementById('delete-post-btn');
 
 addCommentBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
@@ -26,22 +25,4 @@ createCommentBtn.addEventListener('click', async function (event) {
     .catch(function (error) {
         console.error('Error creating post:', error.message);
     });
-});
-
-deletePostBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
-    const postId = event.target.dataset.id;
-
-    console.log('postId: ' + postId);
-
-    const deleteRequest = axios.delete('/api/post/' + postId);
-
-    deleteRequest
-    .then(function (response) {
-        console.log('Response:', response.data);
-        window.location.replace('/');
-      })
-      .catch(function (error) {
-        console.error('Error:', error.message);
-      });
 });

@@ -42,10 +42,3 @@ a {
     margin-right: 10px; 
 }
   
-.button-container {
-    display: flex;
-}
-  
-.button-container button {
-    margin-left: 10px; 
-}
