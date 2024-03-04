@@ -1,5 +1,4 @@
 const loginBtn = document.getElementById('login-btn');
-const logoutBtn = document.getElementById('logout-btn');
 
 loginBtn.addEventListener('click', async function (event) {
     event.preventDefault();

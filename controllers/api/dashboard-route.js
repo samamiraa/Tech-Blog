@@ -56,6 +56,27 @@ router.delete('/post/:id', async (req, res) => {
       res.status(500).json(error);
     }
 });
+
+router.put('/post/:id', async (req, res) => {
+    try {
+        console.log(req.body);
+        const updatePost = await Post.update(
+            {
+                title: req.body.postTitle,
+                description: req.body.postDescription,
+            },
+            {
+                where: {
+                    id: req.body.postId,
+                },
+            },
+        )
+        res.json(updatePost);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+});
   
 
 module.exports = router;

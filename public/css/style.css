@@ -22,6 +22,10 @@ a {
     text-decoration: none;
 }
 
+footer {
+    margin-top: 100%;
+}
+
 .hide {
     display: none;
 }
@@ -36,6 +40,16 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+}
+
+.db-btn-w {
+    width: 100px;
+}
+
+.db-btn-back {
+    width: 100px;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 .text-container {

@@ -1,13 +1,19 @@
 <div class="container-fluid m-auto vh-100" data-bs-theme="dark">
   <div class="position-relative">
     <div class="bottom-0 start-50">
-      <button type="button" class="btn btn-light mb-3 mt-3" id="create-btn">
+       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-back" id="back-btn">
+        Back
+      </button>
+       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-back hide" id="back-to-db-btn">
+        Back
+      </button>
+      <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="create-btn">
         Create New Post
       </button>
-       <button type="button" class="btn btn-light mb-3 mt-3" id="delete-btn">
+       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="delete-btn">
         Delete Post
       </button>
-       <button type="button" class="btn btn-light mb-3 mt-3" id="update-btn">
+       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="update-btn">
         Update Post
       </button>
     </div>
@@ -15,7 +21,7 @@
 
   <div class="m-5 hide">
     <div class="row" id="post-form">
-      <h2 class="text-secondary">Create New Post</h2>
+      <h2 class="text-light">Create New Post</h2>
       <div class="input-group m-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
         <input type="text" id="title" class="form-control" aria-label="Sizing example input"
@@ -34,6 +40,7 @@
     </div>
   </div>
 
+
   {{#if posts.length}}
     {{#each posts as |post|}}
       {{> post-details post}}
@@ -41,6 +48,52 @@
   {{else}}
     <h2 class="text-secondary m-5">No Current posts</h2>
   {{/if}}
+
+
+  <div class="m-5 hide">
+    <div class="row" id="update-post-form">
+      <h2 class="text-light">Update Post</h2>
+      <div class="input-group m-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+        <input type="text" id="post-title" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="form-floating m-3">
+        <textarea class="form-control" id="post-description"
+          style="height: 100px"></textarea>
+        <label for="post-description"></label>
+      </div>
+
+      <button type="button" class="btn btn-dark btn-width mb-5" id="update-post-Btn">
+        Update
+      </button>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="updateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Webdev Wizardry</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-light">
+      Please select post to update.
+    </div>
+  </div>
+</div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="deleteToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Webdev Wizardry</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-light">
+      Please select post to delete.
+    </div>
+  </div>
+</div>
 
 </div>
 
