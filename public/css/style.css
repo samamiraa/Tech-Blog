@@ -22,6 +22,11 @@ a {
     text-decoration: none;
 }
 
+hr {
+    color: #000000;
+    opacity: 100%;
+}
+
 footer {
     margin-top: 100%;
 }

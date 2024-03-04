@@ -19,28 +19,31 @@
     </div>
 </div>
 
+<hr />
+
+
 
 {{#if post.comments.length}}
-    <h2 class="text-secondary">Comments</h2>
-    {{#each post.comments as |comment|}}
-        <div class="card m-3" data-bs-theme="dark">
-            <div class="card-body">
-                {{comment.comment}}
-            </div>
-
-            <div class="card-footer">
-                <div class="text-container">
-                    By {{comment.user.firstName}} on {{format_date comment.createdAt}}
-                </div>
-                <div class="button-container">
-                    <button type="button" class="btn btn-light btn-sm">Delete</button>
-                    <button type="button" class="btn btn-light btn-sm">Update</button>
-                </div>
-            </div>
+<h2 class="text-secondary">Comments</h2>
+{{#each post.comments as |comment|}}
+<div class="card m-3" data-bs-theme="dark">
+    <div class="card-body">
+        {{comment.comment}}
+    </div>
+    
+    <div class="card-footer">
+        <div class="text-container">
+            By {{comment.user.firstName}} on {{format_date comment.createdAt}}
         </div>
-    {{/each}}
+        <button type="button" class="btn btn-light" data-id="{{id}}" id="delete-comment-Btn">
+            Delete
+        </button>
+    </div>
+</div>
+{{/each}}
 {{else}}
-    <h2 class="text-secondary m-5">No comments</h2>
+<h2 class="text-secondary m-5">No comments</h2>
 {{/if}}
 
+<script src="/js/logout.js"></script>
 <script src="/js/post.js"></script>

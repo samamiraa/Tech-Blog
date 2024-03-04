@@ -82,9 +82,7 @@ updateBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
 
     const checkPost = document.getElementById('check-post');
-    const postId = checkPost.getAttribute('data-id');
 
-    console.log('postId: ' + postId);
 
     if (checkPost.checked === true) {
         createBtn.classList.add('hide');
@@ -92,6 +90,8 @@ updateBtn.addEventListener('click', async function (event) {
         updateBtn.classList.add('hide');
         backToHome.classList.add('hide');
         backToDb.classList.remove('hide');
+
+        const postId = checkPost.getAttribute('data-id');
 
         const updatePostForm = document.getElementById('update-post-form');
         updatePostForm.parentElement.classList.remove('hide');
