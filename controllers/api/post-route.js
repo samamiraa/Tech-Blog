@@ -24,8 +24,6 @@ router.post('/comment', async (req, res) => {
       userId: req.session.userId,
       postId: req.body.postId,
     });
-
-    console.log(newComment);
     res.json(newComment);
   } catch (error) {
     console.error(error);
@@ -33,4 +31,19 @@ router.post('/comment', async (req, res) => {
   }
 })
 
-  module.exports = router;
+router.delete('/:id', async (req, res) => {
+  console.log('Deleting post with ID:', req.params.id);
+  try {
+    await Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+    return res.redirect('/');
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error);
+  }
+});
+
+module.exports = router;

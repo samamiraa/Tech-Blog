@@ -7,15 +7,15 @@
         <div class="card-body">
             {{description}}
         </div>
-
+    </a>
         <div class="card-footer">
             <div class="text-container">
                 by {{user.firstName}} on {{format_date createdAt}}
             </div>
             <div class="button-container">
-                <button type="button" class="btn btn-light btn-sm">Delete</button>
-                <button type="button" class="btn btn-light btn-sm">Update</button>
+                <button type="button" data-id="{{id}}" class="btn btn-light btn-sm" id="delete-post-btn">Delete</button>
+                <button type="button" class="btn btn-light btn-sm" id="update-post-btn">Update</button>
             </div>
         </div>
-    </a>
+    
 </div>
