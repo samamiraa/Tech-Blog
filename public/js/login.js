@@ -1,29 +1,10 @@
 const loginBtn = document.getElementById('login-btn');
-const dashboardBtn = document.getElementById('dashboard-btn');
-
-dashboardBtn.addEventListener('click', async function () {
-
-    const getRequest = axios.get('/api/dashboard');
-    getRequest
-        .then(function (response) {
-            console.log('success!', response.data);
-            window.location.replace('/api/dashboard');
-        })
-        .catch(function (error) {
-            console.error('Error:', error.message);
-        });
-
-});
 
 loginBtn.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    console.log(loginBtn + 'has been clicked!')
-
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
-
-    console.log(email + ' ' + password);
 
     const existingUser = { email, password };
 

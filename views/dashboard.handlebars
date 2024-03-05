@@ -1,27 +1,27 @@
 <div class="container-fluid m-auto vh-100" data-bs-theme="dark">
   <div class="position-relative">
     <div class="bottom-0 start-50">
-      <button type="button" class="btn btn-light mb-3 mt-3 db-btn-back" id="back-btn">
+      <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="back-btn">
         Back
       </button>
-      <button type="button" class="btn btn-light mb-3 mt-3 db-btn-back hide" id="back-to-db-btn">
+      <button type="button" class="btn btn-light mb-3 mt-3 hide db-btn-w" id="back-to-db-btn">
         Back
       </button>
       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="create-btn">
-        Create New Post
+        Create
       </button>
       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="delete-btn">
-        Delete Post
+        Delete
       </button>
       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="update-btn">
-        Update Post
+        Update
       </button>
     </div>
   </div>
 
-  <div class="m-5 hide">
+  <div class="m-2 hide">
     <div class="row" id="post-form">
-      <h2 class="text-light">Create New Post</h2>
+      <h3 class="text-light">Create New Post</h3>
       <div class="input-group m-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
         <input type="text" id="title" class="form-control" aria-label="Sizing example input"
@@ -34,7 +34,7 @@
         <label for="floatingTextarea2"></label>
       </div>
 
-      <button type="button" class="btn btn-dark btn-width" id="post-Btn">
+      <button type="button" class="btn btn-light btn-width mb-3" id="post-Btn">
         Create
       </button>
     </div>
@@ -52,7 +52,7 @@
 
   <div class="m-5 hide">
     <div class="row" id="update-post-form">
-      <h2 class="text-light">Update Post</h2>
+      <h3 class="text-light">Update Selected Post</h3>
       <div class="input-group m-3">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
         <input type="text" id="post-title" class="form-control" aria-label="Sizing example input"
@@ -64,7 +64,7 @@
         <label for="post-description"></label>
       </div>
 
-      <button type="button" class="btn btn-dark btn-width mb-5" id="update-post-Btn">
+      <button type="button" class="btn btn-light btn-width mb-5 text-dark" id="update-post-Btn">
         Update
       </button>
     </div>
@@ -98,3 +98,4 @@
 
 <script src="/js/logout.js"></script>
 <script src="../js/dashboard.js"></script>
+<script src="/js/home.js"></script>

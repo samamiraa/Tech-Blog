@@ -1,21 +1,6 @@
 const addCommentBtn = document.getElementById('comment-Btn');
 const createCommentBtn = document.getElementById('create-comment-Btn');
 const deleteCommentBtns = document.querySelectorAll('.delete-comment-Btn');
-const dashboardBtn = document.getElementById('dashboard-btn');
-
-dashboardBtn.addEventListener('click', async function () {
-
-    const getRequest = axios.get('/api/dashboard');
-    getRequest
-        .then(function (response) {
-            console.log('success!', response.data);
-            window.location.replace('/api/dashboard');
-        })
-        .catch(function (error) {
-            console.error('Error:', error.message);
-        });
-
-});
 
 addCommentBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');

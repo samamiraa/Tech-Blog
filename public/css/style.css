@@ -51,13 +51,11 @@ footer {
     width: 100px;
 }
 
-.db-btn-back {
-    width: 100px;
-    padding-top: 18px;
-    padding-bottom: 18px;
-}
-
 .text-container {
     margin-right: 10px; 
+}
+
+#create-comment-Btn {
+    margin-left: 50;
 }
   

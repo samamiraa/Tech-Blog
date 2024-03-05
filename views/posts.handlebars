@@ -6,14 +6,14 @@
 
 <div class="m-5 hide">
     <div class="row" id="comment-form">
-        <h2 class="text-secondary text-center">Add Comment</h2>
+        <h3 class="text-light text-center">Add Comment</h3>
         <div class="form-floating m-3">
             <textarea class="form-control" placeholder="Leave a comment here" id="comment-description"
                 style="height: 100px"></textarea>
             <label for="floatingTextarea2"></label>
         </div>
 
-        <button type="button" data-id="{{post.id}}" class="btn m-4 btn-light btn-width" id="create-comment-Btn">
+        <button type="button" data-id="{{post.id}}" class="btn btn-light btn-width" id="create-comment-Btn">
             Create
         </button>
     </div>
@@ -22,7 +22,7 @@
 <hr />
 
 {{#if post.comments.length}}
-<h2 class="text-secondary">Comments</h2>
+<h2 class="text-light">Comments</h2>
 {{#each post.comments as |comment|}}
 <div class="card m-3" data-bs-theme="dark">
     <div class="card-body">
@@ -40,8 +40,9 @@
 </div>
 {{/each}}
 {{else}}
-<h2 class="text-secondary m-5">No comments</h2>
+<h3 class="text-light m-5">No comments</h3>
 {{/if}}
 
 <script src="/js/logout.js"></script>
 <script src="/js/post.js"></script>
+<script src="/js/home.js"></script>

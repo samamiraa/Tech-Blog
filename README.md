@@ -20,7 +20,8 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+npm install
+npm run create
 
 ## Usage
 
@@ -44,4 +45,4 @@ The MIT License is short and to the point. It lets people do almost anything the
 
 ## Tests
 
-Go the extra mile and write tests for your application. T
+Create an account, add some blog posts, delete some and update some! Add comments. Logout and login in at a later date!

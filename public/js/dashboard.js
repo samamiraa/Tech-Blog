@@ -4,21 +4,6 @@ const deletePostBtn = document.getElementById('delete-btn');
 const updateBtn = document.getElementById('update-btn');
 const backToHome = document.getElementById('back-btn');
 const backToDb = document.getElementById('back-to-db-btn');
-const dashboardBtn = document.getElementById('dashboard-btn');
-
-dashboardBtn.addEventListener('click', async function () {
-
-    const getRequest = axios.get('/api/dashboard');
-    getRequest
-        .then(function (response) {
-            console.log('success!', response.data);
-            window.location.replace('/api/dashboard');
-        })
-        .catch(function (error) {
-            console.error('Error:', error.message);
-        });
-
-});
 
 backToHome.addEventListener('click', async function (event) {
     console.log('button clicked!');
