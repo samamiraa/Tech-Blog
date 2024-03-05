@@ -1,5 +1,6 @@
 const registerBtn = document.getElementById('register-btn');
 
+// creates new user
 registerBtn.addEventListener('click', function (event) {
     event.preventDefault();
 

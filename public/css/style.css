@@ -1,45 +1,53 @@
+/* sets bg color, font family  */
 body {
     background: linear-gradient(to top, #000000, #767676);
     font-family: Arial, sans-serif;
     background-attachment: fixed;
     height: 100vh;
-    /* Ensure the gradient covers the entire viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
+/* fontsize for h1 */
 h1 {
     font-size: 75px;
 }
 
+/* fontsize for h2 */
 h2 {
     font-size: 50px;
 }
 
+/* removes underline from nav links */
 a {
     text-decoration: none;
 }
 
+/* line under post before comments */
 hr {
     color: #000000;
     opacity: 100%;
 }
 
+/* to make footer stay at very bottom of page */
 footer {
     margin-top: 100%;
 }
 
+/* used to hide & display forms */
 .hide {
     display: none;
 }
 
+/* make buttons have same width */
 .btn-width {
     width: 200px;
     margin-left: auto;
 }
 
+/* adjusts spacing for card footers */
 .post-details-footer {
     display: flex;
     justify-content: space-between;
@@ -47,10 +55,12 @@ footer {
     padding: 10px;
 }
 
+/* sets button width for dashboard */
 .db-btn-w {
     width: 100px;
 }
 
+/* adds margin for both these classes */
 .text-container {
     margin-right: 10px; 
 }

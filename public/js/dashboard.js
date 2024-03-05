@@ -1,3 +1,4 @@
+//access btns on frontend
 const createBtn = document.getElementById('create-btn');
 const postBtn = document.getElementById('post-Btn');
 const deletePostBtn = document.getElementById('delete-btn');
@@ -5,19 +6,18 @@ const updateBtn = document.getElementById('update-btn');
 const backToHome = document.getElementById('back-btn');
 const backToDb = document.getElementById('back-to-db-btn');
 
+// redirects to homepage upon click
 backToHome.addEventListener('click', async function (event) {
-    console.log('button clicked!');
     window.location = '/';
 });
 
+// redirects to dashboard upon click
 backToDb.addEventListener('click', async function (event) {
-    console.log('button clicked!');
     window.location = '/api/dashboard';
 });
 
+// shows create blog form
 createBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
-
     const postForm = document.getElementById('post-form');
     postForm.parentElement.classList.remove('hide');
     createBtn.classList.add('hide');
@@ -27,12 +27,10 @@ createBtn.addEventListener('click', async function (event) {
     backToDb.classList.remove('hide');
 });
 
+// creates blog post
 postBtn.addEventListener('click', async function (event) {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
-
-
-    console.log(`${title}: ${description}`);
 
     const blogPost = { title, description };
 
@@ -50,14 +48,12 @@ postBtn.addEventListener('click', async function (event) {
     };
 });
 
+// deletes selected blog post
 deletePostBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
-
     const checkPosts = document.querySelectorAll('.check-post');
 
     checkPosts.forEach((checkPost) => {
         const postId = checkPost.getAttribute('data-id');
-        console.log('postId: ' + postId);
         if (checkPost.checked === true) {
             const deleteRequest = axios.delete('/api/dashboard/post/' + postId);
 
@@ -77,10 +73,8 @@ deletePostBtn.addEventListener('click', async function (event) {
     });
 });
 
-
+// updates selected blog post
 updateBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
-
     const checkPosts = document.querySelectorAll('.check-post:checked');
 
         if (checkPosts.length === 0) {
@@ -98,7 +92,6 @@ updateBtn.addEventListener('click', async function (event) {
             backToDb.classList.remove('hide');
 
             const postId = checkPost.getAttribute('data-id');
-            console.log('postId: ' + postId);
 
             const updatePostForm = document.getElementById('update-post-form');
             updatePostForm.parentElement.classList.remove('hide');
@@ -108,8 +101,6 @@ updateBtn.addEventListener('click', async function (event) {
             updatePostBtn.addEventListener('click', async function (event) {
                 const postTitle = document.getElementById('post-title').value;
                 const postDescription = document.getElementById('post-description').value;
-
-                console.log(`post title: ${postTitle}, post description: ${postDescription}, postId: ${postId}`);
 
                 const updatePostData = { postTitle, postDescription, postId }
 

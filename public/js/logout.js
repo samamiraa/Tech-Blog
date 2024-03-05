@@ -1,5 +1,6 @@
 const logoutBtn = document.getElementById('logout-btn');
 
+//logs user out
 logoutBtn.addEventListener('click', async function () {
     const postRequest = axios.post('/api/logout');
     postRequest

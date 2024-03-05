@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
 
+{{!--login option card--}}
       {{#unless loggedIn}}
       <div class="card text-center m-3">
           
@@ -16,6 +17,7 @@
       
       </div>
      {{/unless}}
+     {{!--loops & adds in partial--}}
     {{#if posts.length}}
       {{#each posts as |post|}}
         {{> main-post-details post}}
@@ -27,6 +29,7 @@
   </div>
 </div>
 
+{{!--hidden toasts--}}
 <div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-theme="dark">
   <div id="userNotLoggedIn" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">

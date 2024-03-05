@@ -2,16 +2,15 @@ const addCommentBtn = document.getElementById('comment-Btn');
 const createCommentBtn = document.getElementById('create-comment-Btn');
 const deleteCommentBtns = document.querySelectorAll('.delete-comment-Btn');
 
+// shows comment form
 addCommentBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
-
     const commentForm = document.getElementById('comment-form');
     commentForm.parentElement.classList.remove('hide');
     addCommentBtn.classList.add('hide');
 });
 
+//creates comment
 createCommentBtn.addEventListener('click', async function (event) {
-
     const commentDescription = document.getElementById('comment-description').value;
     const postId = event.target.dataset.id;
     const commentData = { commentDescription, postId };
@@ -28,6 +27,7 @@ createCommentBtn.addEventListener('click', async function (event) {
         });
 });
 
+//deletes comments
 deleteCommentBtns.forEach((deleteCommentBtn) => {
     deleteCommentBtn.addEventListener('click', async function (event) {
 

@@ -2,18 +2,17 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
+//renders dashboard
 router.get('/', async (req, res) => {
     res.render('register.handlebars');
 });
 
+// creates new user, encrypts password
 router.post('/', async (req, res) => {
-    console.log(req.body);
     try {
         const hashPassword = req.body;
 
         hashPassword.password = await bcrypt.hash(req.body.password, 10);
-
-        console.log(hashPassword);
 
         const newUser = await User.create({
             firstName: req.body.firstName,
@@ -33,7 +32,6 @@ router.post('/', async (req, res) => {
             }
         });
 
-        console.log(req.session);
         res.redirect('/api/dashboard');
     } catch (error) {
         console.error('Error adding new user:', error);

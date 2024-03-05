@@ -2,6 +2,7 @@ const dashboardBtn = document.getElementById('dashboard-btn');
 const navLoginBtn = document.getElementById('nav-login-btn');
 const navRegisterBtn = document.getElementById('nav-register-btn');
 
+//redirects to login page
 navLoginBtn.addEventListener('click', async function () {
     const getRequest = axios.get('/api/login');
 
@@ -15,6 +16,7 @@ navLoginBtn.addEventListener('click', async function () {
     });
 })
 
+// redirects to register page
 navRegisterBtn.addEventListener('click', async function () {
     const getRequest = axios.get('/api/register');
 
@@ -28,8 +30,8 @@ navRegisterBtn.addEventListener('click', async function () {
     });
 })
 
+// redirects to dashboard
 dashboardBtn.addEventListener('click', async function () {
-
     const getRequest = axios.get('/api/dashboard');
     getRequest
         .then(function (response) {

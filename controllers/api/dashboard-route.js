@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, Comments, User } = require('../../models');
 
+// gets all posts for loggedin user
 router.get('/', async (req, res) => {
     try {
         if (req.session.loggedIn) {
@@ -27,6 +28,7 @@ router.get('/', async (req, res) => {
 
 });
 
+// creates new post
 router.post('/post', async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -43,6 +45,7 @@ router.post('/post', async (req, res) => {
     };
 });
 
+// deletes post
 router.delete('/post/:id', async (req, res) => {
     try {
       await Post.destroy({
@@ -57,6 +60,7 @@ router.delete('/post/:id', async (req, res) => {
     }
 });
 
+//updates post
 router.put('/post/:id', async (req, res) => {
     try {
         const updatePost = await Post.update(

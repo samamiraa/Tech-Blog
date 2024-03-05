@@ -1,5 +1,6 @@
 const dayjs = require('dayjs');
 
+//formats date
 module.exports = {
     format_date: (date) => {
         if (!(date instanceof Date) || isNaN(date)) {

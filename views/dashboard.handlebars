@@ -1,6 +1,7 @@
 <div class="container-fluid m-auto vh-100" data-bs-theme="dark">
   <div class="position-relative">
     <div class="bottom-0 start-50">
+      {{!--dashboard buttons--}}
       <button type="button" class="btn btn-light mb-3 mt-3 db-btn-w" id="back-btn">
         Back
       </button>
@@ -19,6 +20,7 @@
     </div>
   </div>
 
+{{!--blog post form--}}
   <div class="m-2 hide">
     <div class="row" id="post-form">
       <h3 class="text-light">Create New Post</h3>
@@ -40,7 +42,7 @@
     </div>
   </div>
 
-
+{{!--loops & adds in partial--}}
   {{#if posts.length}}
   {{#each posts as |post|}}
   {{> post-details post}}
@@ -49,7 +51,7 @@
   <h2 class="text-secondary m-5">You have no posts</h2>
   {{/if}}
 
-
+{{!--update post form--}}
   <div class="m-5 hide">
     <div class="row" id="update-post-form">
       <h3 class="text-light">Update Selected Post</h3>
@@ -70,6 +72,7 @@
     </div>
   </div>
 
+{{!--hidden toasts--}}
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="updateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">

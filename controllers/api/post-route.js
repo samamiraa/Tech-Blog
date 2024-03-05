@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, Comments, User } = require('../../models');
 
+// gets selected post by id
 router.get('/:id', async (req, res) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
@@ -17,6 +18,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+//creates comment
 router.post('/comment', async (req, res) => {
   try {
     const newComment = await Comments.create({
@@ -31,6 +33,7 @@ router.post('/comment', async (req, res) => {
   }
 });
 
+// deletes comment
 router.delete('/comment/:id', async (req, res) => {
   try {
     const deleteComment = await Comments.destroy({

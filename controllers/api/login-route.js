@@ -2,10 +2,12 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models')
 
+//renders login page
 router.get('/', async (req, res) => {
     res.render('login.handlebars');
 });
 
+// logs user in
 router.post('/', async (req, res) => {
     try {
         const loginUser = await User.findOne({
@@ -42,6 +44,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// logs user out
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {

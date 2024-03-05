@@ -1,5 +1,6 @@
 const loginBtn = document.getElementById('login-btn');
 
+// logs user in
 loginBtn.addEventListener('click', async function (event) {
     event.preventDefault();
 
