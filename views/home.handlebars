@@ -2,14 +2,6 @@
   <div class="row">
     <div class="col-12">
 
-  {{!-- <div class="position-relative">
-    <div class="bottom-0 start-50">
-       <button type="button" class="btn btn-light mt-3" id="view-btn">
-        View Post
-      </button>
-    </div>
-  </div> --}}
-
       {{#unless loggedIn}}
       <div class="card text-center m-3">
           
@@ -26,11 +18,35 @@
      {{/unless}}
     {{#if posts.length}}
       {{#each posts as |post|}}
-        {{> post-details post}}
+        {{> main-post-details post}}
       {{/each}}
     {{else}}
       <h2 class="text-secondary m-5">No Current posts</h2>
     {{/if}}
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-theme="dark">
+  <div id="userNotLoggedIn" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Webdec Wizardry</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-light">
+      No user currently logged in.
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-theme="dark">
+  <div id="signInPrompt" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Webdec Wizardry</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-light">
+      Please sign in to go to dashboard.
     </div>
   </div>
 </div>

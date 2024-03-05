@@ -40,7 +40,7 @@ footer {
     margin-left: auto;
 }
 
-.card-footer {
+.post-details-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,6 +1,21 @@
 const addCommentBtn = document.getElementById('comment-Btn');
 const createCommentBtn = document.getElementById('create-comment-Btn');
-const deleteCommentBtn = document.getElementById('delete-comment-Btn');
+const deleteCommentBtns = document.querySelectorAll('.delete-comment-Btn');
+const dashboardBtn = document.getElementById('dashboard-btn');
+
+dashboardBtn.addEventListener('click', async function () {
+
+    const getRequest = axios.get('/api/dashboard');
+    getRequest
+        .then(function (response) {
+            console.log('success!', response.data);
+            window.location.replace('/api/dashboard');
+        })
+        .catch(function (error) {
+            console.error('Error:', error.message);
+        });
+
+});
 
 addCommentBtn.addEventListener('click', async function (event) {
     console.log('button clicked!');
@@ -28,21 +43,23 @@ createCommentBtn.addEventListener('click', async function (event) {
         });
 });
 
-deleteCommentBtn.addEventListener('click', async function (event) {
-    console.log('button clicked!');
+deleteCommentBtns.forEach((deleteCommentBtn) => {
+    deleteCommentBtn.addEventListener('click', async function (event) {
+        console.log('button clicked!');
 
-    const postId = this.getAttribute('data-id');
+        const postId = this.getAttribute('data-id');
 
-    console.log(`postId: ${postId}`);
+        console.log(`postId: ${postId}`);
 
-    const deleteRequest = axios.delete('/api/post/comment/' + postId);
+        const deleteRequest = axios.delete('/api/post/comment/' + postId);
 
-    deleteRequest
-        .then(function (response) {
-            console.log('Response:', response.data);
-            window.location.reload();
-        })
-        .catch(function (error) {
-            console.error('Error:', error.message);
-        });
+        deleteRequest
+            .then(function (response) {
+                console.log('Response:', response.data);
+                window.location.reload();
+            })
+            .catch(function (error) {
+                console.error('Error:', error.message);
+            });
+    });
 });

@@ -3,6 +3,7 @@ const { Post, Comments, User } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
+        if (req.session.loggedIn) {
         const dbPostData = await Post.findAll({
             include: [{ model: Comments }, { model: User }],
             where: {
@@ -16,6 +17,9 @@ router.get('/', async (req, res) => {
 
         console.log(posts);
         res.render('dashboard.handlebars', { posts });
+        } else {
+            res.redirect('/api/login')
+        };
     } catch (error) {
         console.error('Error getting products: ', error);
         res.status(500).json(error);
