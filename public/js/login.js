@@ -8,20 +8,20 @@ loginBtn.addEventListener('click', async function (event) {
 
     const existingUser = { email, password };
 
-    if (email && password) {
-        const toastLiveExample = document.getElementById('liveToast');
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+    if (existingUser || !existingUser) {
+        const loginToast = document.getElementById('loginToast');
+        const toastLogin = bootstrap.Toast.getOrCreateInstance(loginToast);
         
         postRequest = axios.post('/api/login', existingUser);
 
-        await postRequest
+        postRequest
             .then(function (response) {
                 console.log('Successful login!', response.data);
                 window.location.replace('/api/dashboard');
             })
             .catch(function (error) {
-                toastBootstrap.show()
                 console.error('Error loggin in:', error.message);
+                toastLogin.show();
             });
     };
 });

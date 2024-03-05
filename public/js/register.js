@@ -8,12 +8,9 @@ registerBtn.addEventListener('click', function (event) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    console.log('Register Button has clicked!');
-    console.log('name: ' + firstName + lastName);
-    console.log('email: ' + email);
-    console.log('password: ' + password);
-
     const user = { firstName, lastName, email, password };
+    const registerToast = document.getElementById('registerToast');
+    const toastRegister = bootstrap.Toast.getOrCreateInstance(registerToast);
 
     const postRequest = axios.post('/api/register', user);
 
@@ -24,5 +21,6 @@ registerBtn.addEventListener('click', function (event) {
         })
         .catch(function (error) {
             console.error('Error:', error.message);
+            toastRegister.show();
         });
 });

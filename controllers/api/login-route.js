@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
     try {
         const loginUser = await User.findOne({
             where: {
@@ -15,12 +14,9 @@ router.post('/', async (req, res) => {
             },
         });
 
-        console.log(loginUser);
-
         if (!loginUser) {
             res.status(400);
-            return;
-        }
+        };
 
         const validPassword = await bcrypt.compare(req.body.password, loginUser.password);
 
