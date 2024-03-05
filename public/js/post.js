@@ -30,11 +30,8 @@ createCommentBtn.addEventListener('click', async function (event) {
 
 deleteCommentBtns.forEach((deleteCommentBtn) => {
     deleteCommentBtn.addEventListener('click', async function (event) {
-        console.log('button clicked!');
 
         const postId = this.getAttribute('data-id');
-
-        console.log(`postId: ${postId}`);
 
         const deleteRequest = axios.delete('/api/post/comment/' + postId);
 

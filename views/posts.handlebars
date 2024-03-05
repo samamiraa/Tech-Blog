@@ -31,7 +31,7 @@
     
     <div class="card-footer post-details-footer">
         <div class="text-container">
-            By {{comment.user.firstName}} on {{format_date comment.createdAt}}
+         {{comment.user.firstName}} {{format_date comment.createdAt}}
         </div>
         <button type="button" class="btn btn-light delete-comment-Btn" data-id="{{id}}">
             Delete
